@@ -108,21 +108,118 @@
 
 
 7. Python set path in Windows and help 
+=============================================
+	>topics  --> will display avaiable modules
+	>help('LISTS')
 
 8. More on Variables in Python 
-9. Data types in Python 
+=============================================
+	python handles memory efficiently
+
+	//to find address of variable
+	num=10
+	id(num) //output some random number
+	name='narayan' ////output some random number
+	
+	a=10
+	b-a
+	id(a) //output some random number
+	id(b) // same address as 'a'
+
+	k=10 //same address assig to k
+	
+	//change a's address and see
+	a=9
+	id(k) //changes address of K
+	id(b) //shows same old address
+
+	if any value is in memory, not used by any variable then python take care of garbage collection
+
+9. Data types in Python
+=============================================
+		 
+	constants= PI
+	value(PI) //float
+
+	None-variable does not have any value
+	Numeric= int float,
+	complex= num=6+9j
+
+	int(true) //1
+	int(false) //0
+
+	L=[23,4,25,34]
+	type(L) //list
+
+	a={25,36,45,15,12,25}
+	type(a) //set
+
+	t=(25,36,4,57,12)
+	type(t) //tuple	
+
+	st="navin"
+	st='a'
+	type(st) //string
+
+	range(10) //range(0,10)
+	list(range(10)) //[0.1.2.3.4.5.6.7.8.9]
+	list(range=(2,10,2)) //[2,4,6,8]
+
+	Dictionary: key & value
+	 d={'narayan':'samsung', 'thejas':'Nursery'}
+	d,keys() //lists keys
+	d.values() //lists values
+	d['narayan'] //results value of key narayan
+	d.get('Thejas') //results value of key Thejas
+
+	
 10. Operators in Python 
-11. Number System Conversion in Python 
+=============================================
+	Arithmetic- Addition, division, multiplication, subtraction
+	increment, decrement, assignment operator
+	unary operator--+. -
+	Logical operator- AND ( a<8 and b<2) , OR (a<10 or b>11), NOT 9x=true, not x //false
+	relational operator= <,>,==,<=,>=,!=,
+
+11. Number System Conversion in Python
+=============================================
+	BINARY
+		bin(25) //0b11001
+	OCTAL 
+		oct(25) //0o31
+	Hex(10) //0xa
+	0xf //15
+	0b11001 //25
+
 12. IDLE Previous Command | Clear screen - 01:40:17
+	options-> configure IDLE-> Keys-> History previous->get new keys for selection-> select up arrow
+
 13. Python BitWise Operators  - 01:43:11
+=============================================
+	compliment= ~   ~12 //11110011
+	AND = 12&13  //12	
+	OR = 12|13  //13
+	XOR = 12^13 //1
+	LEFTSHIFT= 10<<2 //40
+	RIGHTSHIFT= 10>>2 //2
+	
 14. Import Math Function in Python - 01:55:28
-15. Working with PyCharm | run | debug | trace | Py file - 02:02:43
+=============================================
+	import math	
+	x=math.sqrt(25)
+	print(math.floor(2.5)) //2
+	print(math.ceil(2,2)) //3
+	3**2 //9
+	print(math.pow(3,2)) //9
+	print(math.pi)
+	print(math.e)
 
+	import math as m
+	m.sqrt(25)
 
-
-
-
-
+	//instead of importing all the functions of math, import only specific functions
+	from math import sqrt, pow
+	pow(4,5)  //1024.0
 
 
 16. User input in Python | Command line input - 02:12:38
@@ -313,3 +410,8 @@ if -elif
 	
 	
 24. _INIT_METHOD - 03:33:19
+=============================================
+
+
+
+
