@@ -1,0 +1,315 @@
+1. Introduction to Python 
+====================================
+	>interpreter
+	>IDE
+	>Object oriented
+	>used for web development
+	>easy to learn
+
+2. Python Setup 
+3. Getting Started with Python 
+4. Variables in Python 
+====================================
+	data types
+		var="text1"
+		is_Male=True
+
+	working with strings
+	print("text1 \n text2")
+
+	name="youtube"
+	len(name)
+
+	>>'my'+name[3:]
+
+5. List in Python 
+====================================
+	Lists are mutable (can modify)
+	Lists can have different data type values in it
+
+	values=[9.5, 'narayan',23]
+	name=['narayan','thejas']
+	mix=[values,name]
+	
+	num1=input(" First Number")
+	num2=input("Second Number")
+	result=num1+num2
+	print(result)
+
+	Lists: allows to take various types of values and arrange them in certain order
+	Months= ["Jan","Feb","Mar"]
+	print(Months)
+	print(Months[0])  //access  element by index
+	print(Months[2])
+	print(Months[-2]) //access element by index from backend/ from last element
+	print(Months[1:3])//access range of elements 
+	Months[1]="Dec"  //modify values in lists
+
+	Lists Functions
+	Numbers_list=[1,2,3,4,5,6]
+	Months= ["Jan","Feb","Mar"]
+
+	1) extend() Function: joins 2 different lists
+		E.g Months.extend(Numbers_list)
+		output : Jan","Feb","Mar,1,2,3,4,5,6
+
+	2) append() : 
+		Months.append('April') 
+
+	3) INSERT()
+		Months.insert(1,'April')
+
+	4) REMOVE()
+		Months.remove('April')
+
+	5) POP()->removes last element in the list
+		Months.pop()
+
+	6)INDEX()
+	//To verify/search a value in list
+	 print(Months.index('April'))
+
+	7)COUNT()
+	//Count number of similar elements in the list
+	 print(Months.count('April'))
+
+	8) SORT()
+		Months.sort()
+
+	9) REVERSE()
+		Months.reverse()
+
+	10) COPY()
+		Months2=Months.copy()
+
+
+	nums[23,45,32,11,233,98]
+	min(nums)
+	max(nums)
+	
+6. Tuple / Set in Python 
+====================================
+	Tuple are immutable (cannot modify)
+	tup=(12,13,14,15)
+	tup[1]=33 //error, cannot modify
+
+	Is a type of data structure,container, similar to a list
+	Tuple is inmutable (cannot modify values inside tuple)
+ 
+	coordinates={4,5}
+	coordinates[1]=10   //error
+	print(coordinates[0] //accessing value using index
+
+	coordinates={(4,5), (6,7),(8,9)}	
+
+	SET- collection of simiar values
+	do not display in same sequence
+
+
+
+7. Python set path in Windows and help 
+
+8. More on Variables in Python 
+9. Data types in Python 
+10. Operators in Python 
+11. Number System Conversion in Python 
+12. IDLE Previous Command | Clear screen - 01:40:17
+13. Python BitWise Operators  - 01:43:11
+14. Import Math Function in Python - 01:55:28
+15. Working with PyCharm | run | debug | trace | Py file - 02:02:43
+
+
+
+
+
+
+
+
+16. User input in Python | Command line input - 02:12:38
+====================================
+	x=int(input("Enter 1st number"))
+	y=int(input("Enter 2nd number"))
+	z=x+y
+	print(z)
+
+	ch=input('Enter a char') //input p
+	print(ch)    //putput p
+
+	ch=input('Enter a char')  //input pqr
+	print(ch)    //output pqr
+	
+	ch=input('Enter a char') //input pqr
+	print(ch[0])   //putput p  
+
+	ch=input('Enter a char')[0] //input pqr, pick only 1 character and asign to variable
+	print(ch[0])   //putput p 
+
+	result=eval(input('Enter an expression)) //input 2+6+10
+	print(result)  //output 18
+
+	//Input from command prompt
+	import sys
+	x=int(sys.argv[1])
+	y=int(sys.argv[2])
+	z=x+y
+	print(z)
+
+	//input
+	python pgm.py 2 3    //output 5
+	
+17. if..elif..else Statement in Python - 02:23:57
+====================================
+	if true:
+		print("Im right") //indentation, TAB (or 4 spaces)
+if-else
+	x=8
+	r=x%2
+	if r==0:
+	    print("Even")
+	    if x>5:
+		print("Greater")
+	    else:
+		print("Lesser")	
+	else:
+	    print("Odd")
+
+if -elif
+--------
+	x=2
+	if x==1:
+		print("one")
+	elif: x==1:
+		print("Two")
+	elif: x==1:
+		print("Three")
+	else:
+		print("Wrong input")
+	
+
+18. While loop in Python - 02:39:01
+====================================
+	i=1 
+	while i<=5:
+		print('Number ',i)
+		while j<=4
+			print("Books",end="")  //to stay in same line
+			j=j+1
+		i=i+1
+		print()
+
+19. For loop in Python - 02:51:19
+	x=[;narayan',44,6.4]
+	for i in x:
+		print(i)  //prints all array elements
+
+	x='NARAYAN'
+	for i in x:
+		print(i)  //prints all characters one by one 
+	//output
+	N
+	A
+	R
+	A
+	Y
+	A
+	N
+
+	for i in [10,20,30]:
+		print(i)
+
+	for i in range(10):   
+		print(i) //1 2 3 4 5 6 7 8 9 
+
+	for i in range(1,10,2):   
+		print(i) //1,3,5,7,9
+
+	for i in range(20,10,-1):   
+		print(i) //19,18,17,16,15,14,13,12,11
+
+	for i in range(1,5):
+		if i%2!=0
+		print(i)  //1,3,5
+
+20. Break Continue Pass in Python - 02:58:09
+==========================================
+
+//break statement
+	AV=10
+	x=int(input('ENter number of candies u want))	
+
+	i=1
+	while i<=x:
+		if i<AV:
+			break   
+		print("candy")
+		i+=1
+
+	print("Bye")
+
+//Continue statement
+	for i in range(1,10):
+		if i%2==0:
+			continue
+			print
+
+	print("Bye")
+
+//Pass statement
+	for i in range(1,10):
+		if i%2==0:
+			pass
+		else
+			print(i)
+
+	print("Bye")
+	
+21. Printing Patterns in Python - 02:58:09
+============================================
+	# # # #
+	# # # #
+	# # # #
+	# # # #
+	
+	for i in range(4)
+	    for j in range(4)
+		print("# ",end="")
+	    print()
+
+	#
+	# #
+	# # #
+	# # # #
+
+	for i in range(4)
+	    for j in range(i+1)
+		print("# ",end="")
+	    print()
+
+	# # # #
+	# # #
+	# #
+	#
+	for i in range(4)
+	    for j in range(4-i)
+		print("# ",end="")
+	    print()
+
+22. Object Oriented Programming - 03:15:49
+===========================================
+	Procedural programming
+	Functional programming
+	Object oriented programming
+
+23. Class and Object in Python - 03:22:29
+===========================================
+	class i sble print
+	object is instance of class
+
+	class
+	------
+	class Computer:
+		def config(self):
+	
+	
+	
+24. _INIT_METHOD - 03:33:19
