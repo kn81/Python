@@ -411,6 +411,183 @@ if -elif
 	
 24. _INIT_METHOD - 03:33:19
 =============================================
+	Init is a constructor , which automatically calls whenever objects created, 
+	and it get called number of times as number of object presents
+
+code-1
+    class Computer:
+	def --init--(self):
+		print("Hi init")
+
+	
+		def config(self):
+			print("15,14gb,1TB")
+
+	com1=computer()	
+	com2=computer()	
+	
+	com1.computer()   
+	com2.computer()
+
+
+code-2
+
+    class Computer:
+	def --init--(self,CPU,RAM):
+		self.cup=CPU
+		self.ram=RAM	
+
+	
+		def config(self):
+			print("Config is ",self.cpu,self.ram)
+
+	com1=computer()	
+	com2=computer()	
+	
+	com1.computer('I3','10GB')   //passing parameter
+	com2.computer('I6','16GB')
+
+25. OPPs Concepts - 03:33:54
+===========================================
+	Every time you create an object it create new address
+
+code-1
+   class computer:
+	pass
+
+	c1=computer()
+	c2=computer()
+
+	print(id(c1))  //print address of object
+	print(id(c2))
+
+
+code-2
+   class computer:
+	def --init--(self):
+		self.name="Narayana"
+		self.id=10
+	
+	def update(self):    //reason for having self is it does represents its own, instead of all other objects
+	    self.age=15
+
+	def compare(self,others):
+		if self.age==others.age:
+			return true
+		else:
+			return false
+		
+	
+	c1=computer()
+	c2=computer()
+
+	c1.name="Anyone" //we can change name of object
+	c1.age=13
+	
+	if c1.compare(c2):
+		print("They are same")
+	else:
+		print("They are different")
+
+	print(c1.name)  //print name of object
+	print(c2.name)
+
+class variables stored in class namespace
+instance variables stored in instance namespace
+
+    class car
+	wheels=4    //class variables
+
+	def --init--(self):
+	    self.mil=20    //instance variables
+	    self.com="BMW"
+
+	c1=car()
+	c2=car()
+
+	c1.mil=19
+
+	print(c1.com, c1.mil, c1.wheels)
+	print(c2.com, c2.mil, c3.wheels)
+		
+26. Types of Methods in Python - 03:55:30
+===========================================
+	instance method
+	class method
+	static method
+
+code-1
+	class student:
+	    school="abc"
+
+	    def --init--(self,m1,m2,m3):
+		self.m1=m1
+		self.m2=m2
+		self.m3=m3
+
+ 	    def avg(self):   //instance method, because works with objects
+		return (self.m1+self.m2+self.m3)/3
+
+	
+	    def get_m1(self):   //getter method (receives)
+		return self.m1
+
+	    def set_m1(self):   //setter method (modifies)
+		self.m1=value
+
+	    @classmethod
+	    def info(cls):     //class method, does not have self
+		return cls.school
+
+	    @staticmethod      //static method
+		def info():
+			print("this is static method..")
+
+	s1=student(10,20,30)
+	s2=student(40,50,60)
+
+	print(s1.avg())
+	print(student.info())
+	student.info()
+
+2 types of instance methods
+	1) Accessor methods-- to fetch the value we use this methods
+	2) Mutators methods-- to modify the value we use this methods
+
+27. Inner Class In Python - 04:06:46
+	class inside another class
+	
+    class Student:    //Outer class
+	    def --init--(self,name,rollno):
+		self.name=name
+		self.rollno=rollno
+		self.lap=laptop()
+
+	    def show(self):
+		print(self.name, self.rollno)
+
+	class Laptop:   //Innere class
+		
+	    def --init--(self):
+		self.brand='HP'
+		self.cpu='I5'
+		self.ram=4
+
+	    def show(self):
+		print(self.brand,self.cpu,self.ram)
+
+    s1=Student("user1",2)
+    s2=Student("user2",3)
+
+	s1.show()
+
+	lap1=s1.lap
+	lap2=s2.lap
+
+
+28. Inheritance - 04:13:51
+===========================================
+
 
 
 
