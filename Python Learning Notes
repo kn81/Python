@@ -587,6 +587,272 @@ code-1
 
 28. Inheritance - 04:13:51
 ===========================================
+Types
+	1)single level Inheritance
+	2) Multi level Inheritance
+	3) Multiple Inheritance
+
+1)single level Inheritance
+	A
+	|
+	|
+       \ /
+	.
+	B
+
+class A:
+	def Feat1():
+		print("Feature 1")
+
+	def Feat2():
+		print("Feature 2")
+
+class B(A):    //inheritance, A is parent class
+	def Feat3():
+		print("Feature 3")
+
+	def Feat4():
+		print("Feature 4")
+
+a1=A()
+b1=B()
+
+a1.Feat1()
+a2.Feat2()
+
+//b1 can access all features of class A
+b1.Feat1()
+b1.Feat2()
+b1.Feat3()
+b1.Feat4()
+
+
+2) Multi level Inheritance
+	A
+	|
+	|
+       \ /
+	.
+	B		|
+	|
+       \ /
+	.
+	C
+class A:
+	def Feat1():
+		print("Feature 1")
+
+	def Feat2():
+		print("Feature 2")
+
+class B(A):    //inheritance, A is parent class
+	def Feat3():
+		print("Feature 3")
+
+	def Feat4():
+		print("Feature 4")
+
+class C(B):    //inheritance, B is parent class, B inturn inheriting class A features
+	def Feat5():
+		print("Feature 5")
+a1=A()
+b1=B()
+c1=C()
+
+a1.Feat1()
+a2.Feat2()
+
+//b1 can access all features of class A
+b1.Feat1()
+b1.Feat2()
+b1.Feat3()
+b1.Feat4()
+
+//c1 can access all features of class A, Class B and itself
+c1.Feat1()
+c1.Feat2()
+c1.Feat3()
+c1.Feat4()
+c1.Feat5()
+
+
+3) Multiple Inheritance
+a class inherits properties of more than one class
+	A  B  C
+	\  |  /
+	 \ | /
+           D
+
+class A:
+	def Feat1():
+		print("Feature 1")
+
+	def Feat2():
+		print("Feature 2")
+
+class B:    
+	def Feat3():
+		print("Feature 3")
+
+	def Feat4():
+		print("Feature 4")
+
+class C(A,B):    //inheritance, B is parent class, B inturn inheriting class A features
+	def Feat5():
+		print("Feature 5")
+a1=A()
+b1=B()
+c1=C()
+
+a1.Feat1()
+a2.Feat2()
+
+//b1 can access only own features
+b1.Feat3()
+b1.Feat4()
+
+//c1 can access all features of class A, Class B and itself
+c1.Feat1()
+c1.Feat2()
+c1.Feat3()
+c1.Feat4()
+c1.Feat5()
+
+// constructors in inheritance
+class A:
+	def --init--(self):  //constructor
+		print("in A init")
+
+	def Feat1():
+		print("Feature 1")
+
+class B(A):  
+	def --init--(self):  //constructor
+		super().--init--()   //calls super class constructor
+		print("in B init")
+  
+	def Feat3():
+		print("Feature 3")
+		super().Feat1()    //calling method of super class
+
+a1=A()  // calls A init
+a1=B()  //if class B dont have constructor it calls A's constructor, otherwise it calls its  own constructor
+a1.Feat3()    
+
+Note: method resolution order:  if C inherits class A,B, C's super().--init--(self) calls init method of A
+	A    B
+	\    /
+	 \  /
+           C
+
+	class C(A,B):
+		super().--init--(self):   
+
+Polymorphism
+  Types
+	1) Duck Typing
+	2) Operator Overloading
+	3) Method Overloading
+	4) Method Overriding
+
+1) Duck Typing
+--------------
+class pyCharm:
+
+	def execute(self):
+		print("compiling")
+		print("Running")
+
+
+class MyEditor:
+
+	def execute(self):
+		print("spell check")
+		print("compiling")
+		print("Running")
+class laptop:
+	
+	def code(self,ide):
+		ide.execute()
+
+//ide=pyCharm()
+ide=MyEditor()
+
+
+lap1=laptop()
+lap1.code(ide)
+
+	
+29. Operator Overloading - 04:36:21
+a=4
+b=5
+
+print(a+b) //adds
+print(int.__add__(a,b))  //adds
+
+
+a='4'
+b='5'
+
+print(a+b) //concatenates
+print(str.__add__(a,b))  //concatenates
+
++ will call __add__
+- will call __sub__
+* will call __mul__
+/ will call __div__
+
+
+class student:
+
+	def __init__(self,m1,m2):
+	    self.m1=m1
+	    self.m2=m2
+
+	def __add__(self,other):
+	    m1=self.m1+other.m1
+	    m2=self.m2+other.m2
+	    s3=student(m1,m2)
+
+	    return s3
+
+	def __gt__(self,other):
+
+	   r1=self.m1+self.m2
+	   r2=other.m1+other.m2
+
+	   if r1>r2:
+		return true
+	   else:
+		return false
+
+	def __str__(self):   //to print the value of object we need to define
+	    return '{} {}'.format(self.m1,self.m2)
+
+m1=student(40,30)
+s2=student(20,10)
+
+s3=s1+s2      -> student.__add__(s1,s2)
+
+print(s3.m1)
+
+if s1>s2:
+	print("s1 is reater")
+else:
+	print(s2 is reater")
+
+a=9
+print(a)
+
+print(a.__str__())
+print(s1.__str__())  //print the value of objects
+
+print(s1)
+print(s2)
+
+
+30. Method Overloading and Method Overriding - 04:50:39
+============================================
 
 
 
