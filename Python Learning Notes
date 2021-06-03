@@ -1,3 +1,5 @@
+https://github.com/naveen-reddy/examples
+
 1. Introduction to Python 
 ====================================
 	>interpreter
@@ -890,6 +892,210 @@ Note: if subclass has no show method (pass written, to send control to super cla
 
 31. Exception Handling in Python - 05:00:57
 ==========================================
+Error
+	1) Logical error
+	2) Run time error
+	3) syntax error
+
+a=10
+b=2
+
+try
+	print("resource open")
+	print(a/b)
+	k=int(input("Enter a number")
+	print(k)
+
+except ZeroDivisionError as e:
+	print("cannot divide by zero",e)
+
+except ValueError as e:
+	print("invalid input",e)
+
+except Exception e:
+	print("something went wrong",e)
+	
+finally:
+	print("resource closed")
+
+
+32. Multithreading - 05:16:35
+==========================================
+
+from time import sleep
+from threading import *
+
+class Hello(Thread):
+	def run(self):
+	  for i in range(5):
+	      print("Hello")
+	      sleep(1)
+
+class Hi(Thread):
+	def run(self):
+	  for i in range(5):
+	      print("Hi")
+	      sleep(1)
+
+
+t1=Hello()
+t2=Hi()
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+
+print("Bye")
+
+33. File Handling - 05:31:05
+==========================================
+
+//prints single line
+	f=open('Myfile','r')
+	print(f.read())
+	print(f.read())   //reading next line
+
+//Writing into a file
+	f1=open('abc','w')
+	f1.write("line1")
+	f1.write("line2")
+
+//Reading all lines from files 
+	f1=open('abc','a')
+	f1.append('line3')
+
+	for data in f
+	print(data)
+
+//Reading from image file
+	f=open('IMG.jpg','rb')   //read binary
+	for i in f
+	print(i)
+
+//writing into image file
+	f=open('IMG.jpg','wb')   //write into binary image
+	for i in f
+	print(i)
+
+34. Comments in Python - 05:43:06
+==========================================
+#- single line
+
+"""- used for documentation
+
+35. Linear Search in Python - 05:53:19
+==========================================
+
+                             demo.py
+--------------------------------------------------------------------------------
+
+pos = -1
+
+def search(list, n):
+    i = 0
+
+    while i< len(list):
+        if list[i] == n:
+            globals()['pos'] = i
+            return True
+        i = i + 1;
+
+    return False
+
+list = [5,8,4,6,9,2]
+n = 9
+
+if search(list, n):
+    print("Found at ",pos+1)
+else:
+    print("Not Found")
+
+
+Binary search
+-----------------
+                             demo.py
+--------------------------------------------------------------------------------
+
+pos = -1
+
+def search(list, n):
+
+    l = 0
+    u = len(list)-1
+
+    while l <= u:
+        mid = (l+u) // 2
+
+        if list[mid] == n:
+            globals()['pos'] = mid
+            return True
+        else:
+            if list[mid] < n:
+                l = mid+1;
+            else:
+                u = mid-1;
+
+    return False
+
+
+list = [4,7,8,12,45,99,102,702,10987,56666]
+n = 10
+
+if search(list, n):
+    print("Found at ",pos+1)
+else:
+    print("Not Found")
+
+Bubble sort
+-------------
+                             demo.py
+--------------------------------------------------------------------------------
+
+
+def sort(nums):
+
+    for i in range(len(nums)-1,0,-1):
+        for j in range(i):
+            if nums[j]>nums[j+1]:
+                temp = nums[j]
+                nums[j] = nums[j+1]
+                nums[j+1] = temp
+
+
+nums = [5, 3, 8, 6, 7, 2]
+sort(nums)
+
+print(nums)
+
+36. Selection sort - 06:16:42
+==========================================
+def sort(nums):
+
+    for i in range(5):
+        minpos = i
+        for j in range(i,6):
+            if nums[j] < nums[minpos]:
+                minpos = j
+
+
+        temp = nums[i]
+        nums[i] = nums[minpos]
+        nums[minpos] = temp
+
+        print(nums)
+
+
+nums = [5, 3, 8, 6, 7, 2]
+sort(nums)
+
+print(nums)
+
+
+37. MySQL Workbench Setup - 06:24:05
+==========================================
+
 
 
 
